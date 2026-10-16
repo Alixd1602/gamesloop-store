@@ -1188,3 +1188,30 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAll();
   updateCartUI();
 });
+// --- تفعيل تفاعل شريط التنقل (Navbar) مع السكرول التلقائي ---
+window.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('.section-block, section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a, nav a'); // حدد الروابط بتاعت الأقسام في الهيدر
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollPosition = window.scrollY + 200; // مسافة تعويضية عشان التفعيل يضبط بدري شوية
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active'); // شيل التحديد من كله
+      const href = link.getAttribute('href');
+      if (href && href.includes(current)) {
+        link.classList.add('active'); // حط التحديد على القسم الحالي بس
+      }
+    });
+  });
+});
