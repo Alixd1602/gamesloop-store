@@ -856,7 +856,7 @@ const topupData = [
     category: "شحن فورتنايت (جميع المنصات)",
     badgeText: { ar: "شحن مباشر ⚡", en: "Instant Top-Up ⚡" },
     badgeType: "flash",
-    image: "games photos/fortnite.jpg",
+    image: "games photos/vbucks.jpg",
     options: [
       { name: "Fortnite Crew (اشتراك الكرو)", price: 250 },
       { name: "1,000 V-Bucks", price: 300 },
@@ -871,7 +871,7 @@ const topupData = [
     category: "كريدتس روكت ليج",
     badgeText: { ar: "تسليم سريع 🏎️", en: "Fast Delivery 🏎️" },
     badgeType: "green",
-    image: "games photos/rocket_league.jpg",
+    image: "games photos/rlcredits.jpg",
     options: [
       { name: "500 Credits", price: 180 },
       { name: "1,100 Credits", price: 350 },
@@ -885,7 +885,7 @@ const topupData = [
     category: "عملات أوفرواوتش 2",
     badgeText: { ar: "شحن آمن 🎯", en: "Safe Top-Up 🎯" },
     badgeType: "yellow",
-    image: "games photos/overwatch.jpg",
+    image: "games photos/owcoins.jpg",
     options: [
       { name: "500 Coins", price: 200 },
       { name: "1,000 Coins (+100 Bonus)", price: 380 },
