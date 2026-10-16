@@ -625,3 +625,37 @@ body {
 }
 
 .facebook-link:hover { background: #1877f2; color: #fff; }
+/* --- تعديلات وتجاوب الموقع للشاشات الصغيرة (الموبايل) --- */
+@media screen and (max-width: 768px) {
+  /* تصغير الهيدر ولياوت القائمة فوق */
+  header {
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  /* تصغير شبكة الألعاب عشان تبان كارتين جنب بعض بدل ما الكارت ياخد الشاشة كلها */
+  .games-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  /* تصغير عناوين الأقسام عشان تناسب شاشة الموبايل */
+  .section-title {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  /* تصغير كروت المنتجات والأسعار للموبايل */
+  .game-card {
+    padding: 8px;
+  }
+}
