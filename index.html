@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-root">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Games Loop Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- الهيدر النيون الغامق -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <img src="logo.jpg" alt="Games Loop Logo" class="header-logo" onerror="this.style.display='none'">
+        <div class="brand-text-area">
+          <h1 class="brand-title">Games <span>Loop</span></h1>
+          <a href="tel:01027689995" class="header-phone">📞 01027689995</a>
+        </div>
+      </div>
+
+      <!-- شريط البحث السريع -->
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="دور على لعبه أو سيرفر..." data-i18n-ph="searchPlaceholder">
+        <span class="search-icon">🔍</span>
+      </div>
+      
+      <nav class="nav-links">
+        <a href="#ps-games" data-i18n="navPs" class="active">بلايستيشن</a>
+        <a href="#xbox-games" data-i18n="navXbox">إكس بوكس</a>
+        <a href="#pc-games" data-i18n="navPc">ألعاب PC</a>
+        <a href="#iptv" data-i18n="navIptv">IPTV</a>
+        <a href="#subs" data-i18n="navSubs">الاشتراكات</a>
+        <a href="#topup" data-i18n="navTopup">شحن ألعاب</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="open-cart-btn" class="cart-btn">
+          🛒 <span id="cart-count">0</span>
+        </button>
+        <button id="lang-switch-btn" class="lang-btn">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- محتوى الصفحة -->
+  <main class="container">
+    
+    <!-- قسم ألعاب بلايستيشن -->
+    <section id="ps-games" class="section-block">
+      <h2 class="section-title" data-i18n="psTitle">🎮 ألعاب بلايستيشن (PS4 / PS5)</h2>
+      <div id="ps-grid" class="games-grid"></div>
+    </section>
+
+    <!-- قسم ألعاب إكس بوكس -->
+    <section id="xbox-games" class="section-block">
+      <h2 class="section-title" data-i18n="xboxTitle">💚 ألعاب إكس بوكس (Home, Sign, Sign Share & Full Account)</h2>
+      <div id="xbox-grid" class="games-grid"></div>
+    </section>
+
+    <!-- قسم ألعاب PC -->
+    <section id="pc-games" class="section-block">
+      <h2 class="section-title" data-i18n="pcTitle">💻 ألعاب البي سي (Steam / PC)</h2>
+      <div id="pc-grid" class="games-grid"></div>
+    </section>
+
+    <!-- قسم سيرفرات الـ IPTV -->
+    <section id="iptv" class="section-block">
+      <h2 class="section-title" data-i18n="iptvTitle">📺 سيرفرات IPTV</h2>
+      <div id="iptv-grid" class="games-grid"></div>
+    </section>
+
+    <!-- قسم الاشتراكات -->
+    <section id="subs" class="section-block">
+      <h2 class="section-title" data-i18n="subsTitle">⚡ الاشتراكات الرقمية والذكاء الاصطناعي</h2>
+      <div id="subs-grid" class="games-grid"></div>
+    </section>
+<!-- قسم شحن عملات الألعاب -->
+<section id="topup" class="section-block">
+  <h2 class="section-title" data-i18n="topupTitle">💎 شحن عملات الألعاب والبطاقات</h2>
+  <div id="topup-grid" class="games-grid"></div>
+</section>
+  </main>
+
+  <!-- Modal تفاصيل المنتج -->
+  <div id="product-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content product-details-modal">
+      <button class="close-modal" id="close-product-btn">&times;</button>
+      <div class="modal-product-body">
+        <img id="modal-product-img" src="" alt="">
+        <div class="modal-product-info">
+          <h2 id="modal-product-title">اسم المنتج</h2>
+          <p id="modal-product-cat" class="platform">القسم</p>
+          <div class="options-container">
+            <label data-i18n="chooseOption">اختر نوع التفعيل:</label>
+            <div id="options-list" class="options-list"></div>
+          </div>
+          <div class="modal-action-bar">
+            <span id="modal-selected-price" class="modal-price">0 EGP</span>
+            <button id="add-to-cart-btn" class="add-cart-action-btn" data-i18n="addToCart">إضافة للسلة 🛒</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal السلة -->
+  <div id="cart-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content cart-modal-content">
+      <button class="close-modal" id="close-cart-btn">&times;</button>
+      <h2 data-i18n="cartTitle">🛒 سلة الشراء</h2>
+      <div id="cart-items-list" class="cart-items-list"></div>
+      <div class="cart-footer">
+        <div class="cart-total-bar">
+          <span data-i18n="totalPrice">الإجمالي:</span>
+          <span id="cart-total-price">0 EGP</span>
+        </div>
+        <button id="checkout-whatsapp-btn" class="checkout-btn" data-i18n="checkoutWhatsapp">إتمام الطلب عبر واتساب 💬</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- الفوتر السفلي -->
+  <footer class="main-footer-bottom">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Games <span>Loop</span> 🎮</h3>
+        <p data-i18n="footerDesc">متجر إلكتروني يوفر لك: ألعاب إكس بوكس وبلايستيشن واشتراكاتهم مثل الجيم باس والبلس، ومتوفر كل خدمات IPTV لمشاهدة الأفلام والمسلسلات والرياضة بضمان مضمون 100%.</p>
+      </div>
+      
+      <div class="footer-col">
+        <h4 data-i18n="footerPaymentTitle">طرق الدفع المتاحة 💳</h4>
+        <p><span data-i18n="vodafone">🟢 فودافون كاش</span>: <span dir="ltr">01027689995 / 01015906799</span></p>
+        <p><span data-i18n="instapay">🟣 إنستاباي & تيلدا</span>: <span dir="ltr">@Fareshala</span></p>
+        <p><span data-i18n="binance">🟡 باينانس</span>: <span dir="ltr">750838178</span></p>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footerContactTitle">للتواصل والدعم 24/7</h4>
+        <p><span data-i18n="hotline">📞 الخط الساخن</span>: <span dir="ltr">01027689995</span></p>
+        <p><span data-i18n="emailText">✉️ الإيميل</span>: gamesloop700@gmail.com</p>
+        <p data-i18n="warrantyText">🛡️ ضمان كامل على كافة العمليات والتفعيلات</p>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p data-i18n="copyright">جميع الحقوق محفوظة © 2026 Games Loop - Abo Fares</p>
+    </div>
+  </footer>
+
+  <!-- قائمة المساعدة العائمة -->
+  <div class="help-widget-container">
+    <div id="help-popup" class="help-popup" style="display: none;">
+      <div class="help-header">
+        <span data-i18n="helpHeader">مساعدة ودعم</span>
+        <button id="close-help-btn">&times;</button>
+      </div>
+      <p class="help-title" data-i18n="helpTitle">اختر الجروب المطلوب للانضمام:</p>
+      <div class="help-links">
+        <a href="https://chat.whatsapp.com/GEFfxuUXxwkA46pNkpRIXd" target="_blank" class="whatsapp-group-link">جروب الشات 💬</a>
+        <a href="https://chat.whatsapp.com/Kf1QzSCSDOUcH0kqPS6Jpi" target="_blank" class="whatsapp-group-link">جروب الواتس الأول 🎮</a>
+        <a href="https://chat.whatsapp.com/BQQEcAqaaG34tsHNJmYvfA" target="_blank" class="whatsapp-group-link">الجروب الثاني ⚡</a>
+        <a href="https://chat.whatsapp.com/DqcyW7DmzP0BBIT2sNIcOW" target="_blank" class="whatsapp-group-link">جروب الثالث 📺</a>
+        <a href="https://chat.whatsapp.com/IKAN5keCa1W5hYsWkf05Yc" target="_blank" class="whatsapp-group-link">جروب البلايستيشن 🕹️</a>
+        <a href="https://www.facebook.com/share/p/1AaCM3QwnZ/" target="_blank" class="facebook-link">صفحة الفيس بوك 🌐</a>
+      </div>
+    </div>
+    <button id="help-toggle-btn" class="help-float-btn">
+      <span data-i18n="helpButton">محتاج مساعدة؟</span>
+      <span class="help-icon">💬</span>
+    </button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
